@@ -1,18 +1,37 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { 
+import { RouterModule, Routes } from '@angular/router';
+
+import {
   MatButtonModule,
- } from '@angular/material';
+  MatCardModule
+} from '@angular/material';
 
 import { AppComponent } from './app.component';
+import { QuestionListComponent } from './question-list/question-list.component';
+
+const appRoutes: Routes = [
+  {
+    path: 'questions', component: QuestionListComponent, data: { title: 'Questions' }
+  },
+  {
+    path: '', redirectTo: '/questions', pathMatch: 'full'
+  },
+  {
+    path: '**', redirectTo: '/questions'
+  }
+];
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    QuestionListComponent,
   ],
   imports: [
     BrowserModule,
-    MatButtonModule
+    RouterModule.forRoot(appRoutes),
+    MatButtonModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-root',
   template: `
-    <button mat-button>Click me!</button>
+    <router-outlet></router-outlet>
   `,
   styles: []
 })
