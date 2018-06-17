@@ -1,1 +1,7 @@
-test
+<app-new-question></app-new-question>
+<mat-card *ngFor="let q of questions" class="card">
+    {{q.text}} 
+    <mat-card-actions>
+        <i class="material-icons card-icon">favorite_border</i>
+    </mat-card-actions>
+</mat-card>

@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { UUID } from 'angular2-uuid';
 
 @Component({
   selector: 'app-root',
@@ -7,6 +8,11 @@ import { Component } from '@angular/core';
   `,
   styles: []
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'app';
+
+  ngOnInit(): void {
+    let uuid = UUID.UUID();
+    sessionStorage.setItem('session-id', uuid);
+  }
 }
